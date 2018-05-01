@@ -16,18 +16,19 @@ Follow the steps below for every SpatialOS Unreal project you want to upgrade an
 
 ## Quick guide
 1. Run `spatial clean`.
-2. Clone the [SpatialOS Unreal SDK GitHub repository](https://github.com/spatialos/UnrealSDK).
-3. From the cloned repository, move the `Game` directory into your project’s Unreal worker directory (this is usually `<root>/workers/unreal`).
+1. Clone the [SpatialOS Unreal SDK GitHub repository](https://github.com/spatialos/UnrealSDK).
+1. From the cloned repository, move the `Game` directory into your project’s Unreal worker directory (this is usually `<root>/workers/unreal`).
 	If you are asked whether to merge or replace the `Game` folder, select merge, otherwise you will delete files that your game depends upon.
-4. Still in the Unreal worker directory, edit the `spatialos.UnrealClient.worker.json` file to remove `"generated_build_scripts_type": "unreal"` completely
+1. Still in the Unreal worker directory, edit the `spatialos.UnrealClient.worker.json` file to remove `"generated_build_scripts_type": "unreal"` completely
 and to replace `"Game/Intermediate/Improbable/spatialos.unreal.client.build.json"` with `"Game/Source/SpatialOS/spatialos.unreal.client.build.json".`
-5. Edit the `spatialos.UnrealWorker.worker.json` file to remove `"generated_build_scripts_type": "unreal"` completely
+1. Edit the `spatialos.UnrealWorker.worker.json` file to remove `"generated_build_scripts_type": "unreal"` completely
 and to replace `"Game/Intermediate/Improbable/spatialos.unreal.worker.build.json"` with `"Game/Source/SpatialOS/spatialos.unreal.worker.build.json".`
-6. In `<root>\workers\unreal\Game\Intermediate\Improbable` delete the `spatialos_worker_packages.json` file.
-7. In `Game/<yourgame>.uproject` replace all instances of `spatial invoke unreal` with
+1. In `<root>\workers\unreal\Game\Intermediate\Improbable` delete the `spatialos_worker_packages.json` file.
+1. In `Game/<yourgame>.uproject` replace all instances of `spatial invoke unreal` with
 `Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager`.
-8. Edit the `spatialos.json` file in two places so that `"version" is “13.0.0”`.
-9. Run `spatial worker build`.
+1. Edit the `spatialos.json` file in two places so that `"version" is “13.0.0”`.
+1. Run `spatial clean` (again).
+1. Run `spatial worker build`.
 
 ## Detailed guide
 
@@ -38,7 +39,7 @@ Note: It’s very important you start by running `spatial clean`. If you don’t
 may cause issues with the new version.
 
 ### 2. Clone or download the Unreal SDK 1.0.0.
-1. Get the Unreal SDK by cloning the [SpatialOS Unreal SDK GitHub repository](https://github.com/spatialos/UnrealSDK).
+3. Get the Unreal SDK by cloning the [SpatialOS Unreal SDK GitHub repository](https://github.com/spatialos/UnrealSDK).
 Either follow the **Clone or download** instructions on the web page or clone using the command line. (See the [git-scm](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) website for guidance on setting up and using command-line git.)
 &nbsp;
 For command-line git, in a terminal window run:
@@ -46,10 +47,10 @@ For command-line git, in a terminal window run:
 
 ### 3. Upgrade your Unreal project
 
-1. From the cloned repository, copy the contents of the `Game` directory into the directory which contains
+4. From the cloned repository, copy the contents of the `Game` directory into the directory which contains
 your Unreal project’s workers. (It is the directory which contains the `spatialos_worker_packages.json` file.)
 For example: `~/mySpatialOSgame/workers/unreal`
-2. In the same directory, edit the `spatialos.UnrealClient.worker.json` file to remove  `"generated_build_scripts_type": "unreal"`
+5. In the same directory, edit the `spatialos.UnrealClient.worker.json` file to remove  `"generated_build_scripts_type": "unreal"`
 completely and to replace `"spatialos.unreal.client.build.json"` with `"Game/Source/SpatialOS/spatialos.unreal.client.build.json"`.
 This part of the file should now look like this:
 
@@ -59,7 +60,7 @@ This part of the file should now look like this:
   },
 ```
 
-3. In the same directory, edit the `spatialos.UnrealWorker.worker.json` file to remove the `"generated_build_scripts_type": "unreal"`
+6. In the same directory, edit the `spatialos.UnrealWorker.worker.json` file to remove the `"generated_build_scripts_type": "unreal"`
 completely and to replace `"spatialos.unreal.client.build.json"` with `"Game/Source/SpatialOS/spatialos.unreal.client.build.json".`
 This part of the file should now look like this:
 
@@ -69,9 +70,9 @@ This part of the file should now look like this:
   },
 ```
 
-4. Delete `spatialos_worker_packages.json` as `spatial` no longer uses this file.
+7. Delete `spatialos_worker_packages.json` as `spatial` no longer uses this file.
 
-5. In `Game/<yourgame>.uproject` replace all instances of `spatial invoke unreal` with
+8. In `Game/<yourgame>.uproject` replace all instances of `spatial invoke unreal` with
 `Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager`.
 
 For example, the `PostBuildSteps` section of `Game/<yourgame.uproject>` should look something like this:
@@ -92,7 +93,7 @@ For example, the `PostBuildSteps` section of `Game/<yourgame.uproject>` should l
 }
 ```
 
-6. Navigate two directories up to find the `spatialos.json` file.
+9. Navigate two directories up to find the `spatialos.json` file.
 Edit the `spatialos.json` file so that the `"version"` is `“13.0.0”` and save the file. Note that there are two places
 to edit the version.
 
@@ -109,9 +110,10 @@ The file should now look similar to this:
 }
 ```
 
+10. In the root directory of your project, run `spatial clean` (again).
 
 ### 3. Check it worked
-1. In the root directory of your project, check that the upgrade and migration worked by running:
+11. In the root directory of your project, check that the upgrade and migration worked by running:
 `spatial worker build`.
 &nbsp;
 It’s worked when you see `'spatial build UnrealWorker UnrealClient' succeeded` (or `'spatial.exe build UnrealWorker UnrealClient' succeeded`).
