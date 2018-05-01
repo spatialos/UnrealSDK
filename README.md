@@ -14,10 +14,10 @@ SpatialOS at [docs.improbable.io](https://docs.improbable.io).
 **Software:**
 To use the SpatialOS Unreal SDK, you need the following software:
   * The SpatialOS Unreal SDK
-  * Unreal
+  * Unreal Engine 4 built from source
   * The `spatial` CLI for SpatialOS
 
-See [System requirements: software](docs/get-started/requirements.md#software) for details.
+See [System requirements: software](docs/get-started/requirements.md#software) for details and [Manual setup guide for Windows](docs/get-started/setup/win.md) for installation guidance.
 
 **Operating system:** [System requirements: Operating systems](docs/get-started/requirements.md#system-requirements#software)
 
