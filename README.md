@@ -23,11 +23,12 @@ See [System requirements: software](docs/get-started/requirements.md#software) f
 
 **Hardware:** [System requirements: Hardware](docs/get-started/requirements.md#hardware)
 
-**Network settings:** [System requirements: Hardware](docs/get-started/requirements.md#network-settings)
+**Network settings:** [System requirements: Network settings](docs/get-started/requirements.md#network-settings)
 
 ## Installing and upgrading
 **New install:** If you are installing SpatialOS and the SpatialOS Unreal SDK for the first time, see:
 [Introduction to the Unreal SDK](docs/introduction.md).
+
 **Upgrade and migration:** If you have a version of SpatialOS and the SpatialOS Unreal SDK which is
 earlier than SpatialOS 13.0, you have a combined SpatialOS and SpatialOS Unreal SDK bundle.
 To get the separated version, see [Upgrading to SpatialOS 13.0 and migrating to the Unreal SDK 1.0.0](docs/migration.md).
@@ -35,7 +36,8 @@ To get the separated version, see [Upgrading to SpatialOS 13.0 and migrating to 
 
 ## Documentation
 **Unreal SDK documentation:** [This repository in GitHub](docs/start-here-table-of-contents.md)
-**SpatialOS documentation:** [docs.improbable.io.](https://docs.improbable.io.)
+
+**SpatialOS documentation:** [docs.improbable.io](https://docs.improbable.io)
 
 ## Community
 **Visit:** Join us at [forums.improbable.io](https://forums.improbable.io) for technical questions and issues.
