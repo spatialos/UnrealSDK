@@ -24,11 +24,18 @@ If you encounter this, please patch [this pull request](https://github.com/EpicG
 your Unreal Engine source code and [rebuild Unreal](get-started/setup/win.md#3-set-up-unreal). Afterwards, you 
 need to build your project using `spatial build`.
 
-## Getting started
+## License
+* See the [license](../LICENSE.md).
 
+## Documentation
+* See the SpatialOS documentation at [docs.improbable.io](https://docs.improbable.io/).
+* See the Unreal SDK documentation on [GitHub](start-here-table-of-contents.md).
+
+
+## Getting started
 To get started, [set up your machine](get-started/setup/win.md).
 
-Once you've done that, see the rest of the documentation to learn how to:
+Once you've done that, see the rest of the [documentation](start-here-table-of-contents.md) to learn how to:
 
 - [Set up a project](develop/set-up-unreal-project.md)
 - [Build](develop/build.md)
