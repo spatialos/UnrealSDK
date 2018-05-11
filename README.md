@@ -6,7 +6,7 @@
 * License: This repository is subject to [license](LICENSE.md)
 
 Use the SpatialOS Unreal SDK to create games with persistent online worlds.
-Together with the SpatialOS [spatial CLI](https://docs.improbable.io/reference/13.0/shared/spatial-cli/introduction.md), the SpatialOS Unreal SDK allows you to use [Unreal](https://www.unrealengine.com) to create games for the [SpatialOS](https://improbable.io/games) platform.
+Together with the SpatialOS [spatial CLI](https://docs.improbable.io/reference/latest/shared/spatial-cli-introduction), the SpatialOS Unreal SDK allows you to use [Unreal](https://www.unrealengine.com) to create games for the [SpatialOS](https://improbable.io/games) platform.
 In addition to the [SpatialOS Unreal SDK documentation](docs/start-here-table-of-contents.md) in this repository, you can find out more about
 SpatialOS at [docs.improbable.io](https://docs.improbable.io).
 
