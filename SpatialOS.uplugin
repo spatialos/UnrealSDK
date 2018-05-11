@@ -1,0 +1,41 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "SpatialOS",
+	"Description": "",
+	"Category": "SpatialOS",
+	"CreatedBy": "Improbable Worlds, Ltd.",
+	"CreatedByURL": "https://improbable.io",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "https://forums.improbable.io/c/sup",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "SpatialOS",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "SpatialOSEditorToolbar",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	],
+	"PostBuildSteps":
+		{
+			"Win64": [
+				"cd /D \"$(ProjectDir)\"",
+				"Plugins\\SpatialOS\\Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager package --engineDir=\"$(EngineDir)\" --project=\"$(ProjectFile)\" --platform=\"$(TargetPlatform)\" --target=\"$(TargetType)\" --configuration=\"$(TargetConfiguration)\" -- -allmaps",
+				"exit /B %ERRORLEVEL%"
+			],
+			"Linux": [
+				"cd \"$(ProjectDir)\"",
+				"Plugins\\SpatialOS\\Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager package --engineDir=\"$(EngineDir)\" --project=\"$(ProjectFile)\" --platform=\"$(TargetPlatform)\" --target=\"$(TargetType)\" --configuration=\"$(TargetConfiguration)\" -- -allmaps",
+				"exit /B %ERRORLEVEL%"
+			]
+		}
+}
