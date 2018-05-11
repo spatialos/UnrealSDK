@@ -20,11 +20,11 @@ Follow the steps below for every SpatialOS Unreal project you want to upgrade an
 1. From the cloned repository, move the `Game` directory into your project’s Unreal worker directory (this is usually `<root>/workers/unreal`).
 	If you are asked whether to merge or replace the `Game` folder, select merge, otherwise you will delete files that your game depends upon.
 1. Still in the Unreal worker directory, edit the `spatialos.UnrealClient.worker.json` file to remove `"generated_build_scripts_type": "unreal"` completely
-and to replace `"Game/Intermediate/Improbable/spatialos.unreal.client.build.json"` with `"Game/Source/SpatialOS/spatialos.unreal.client.build.json".`
+and to replace `"Game/Plugins/SpatialOS/Intermediate/Improbable/spatialos.unreal.client.build.json"` with `"Game/Plugins/SpatialOS/Source/SpatialOS/spatialos.unreal.client.build.json".`
 1. Edit the `spatialos.UnrealWorker.worker.json` file to remove `"generated_build_scripts_type": "unreal"` completely
-and to replace `"Game/Intermediate/Improbable/spatialos.unreal.worker.build.json"` with `"Game/Source/SpatialOS/spatialos.unreal.worker.build.json".`
-1. In `<root>\workers\unreal\Game\Intermediate\Improbable` delete the `spatialos_worker_packages.json` file.
-1. In `Game/<yourgame>.uproject` replace all instances of `spatial invoke unreal` with
+and to replace `"Game/Plugins/SpatialOS/Intermediate/Improbable/spatialos.unreal.worker.build.json"` with `"Game/Plugins/SpatialOS/Source/SpatialOS/spatialos.unreal.worker.build.json".`
+1. In `<root>\workers\unreal\Game\Plugins\SpatialOS\Intermediate\Improbable` delete the `spatialos_worker_packages.json` file.
+1. In `Game/Plugins/SpatialOS/SpatialOS.uplugin` replace all instances of `spatial invoke unreal` with
 `Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager`.
 1. Edit the `spatialos.json` file in two places so that `"version" is “13.0.0”`.
 1. Run `spatial clean` (again).
@@ -51,42 +51,42 @@ For command-line git, in a terminal window run:
 your Unreal project’s workers. (It is the directory which contains the `spatialos_worker_packages.json` file.)
 For example: `~/mySpatialOSgame/workers/unreal`
 5. In the same directory, edit the `spatialos.UnrealClient.worker.json` file to remove  `"generated_build_scripts_type": "unreal"`
-completely and to replace `"spatialos.unreal.client.build.json"` with `"Game/Source/SpatialOS/spatialos.unreal.client.build.json"`.
+completely and to replace `"spatialos.unreal.client.build.json"` with `"Game/Plugins/SpatialOS/Source/SpatialOS/spatialos.unreal.client.build.json"`.
 This part of the file should now look like this:
 
 ```
 "build": {
-   "tasks_filename": "Game/Source/SpatialOS/spatialos.unreal.client.build.json"
+   "tasks_filename": "Game/Plugins/SpatialOS/Source/SpatialOS/spatialos.unreal.client.build.json"
   },
 ```
 
 6. In the same directory, edit the `spatialos.UnrealWorker.worker.json` file to remove the `"generated_build_scripts_type": "unreal"`
-completely and to replace `"spatialos.unreal.client.build.json"` with `"Game/Source/SpatialOS/spatialos.unreal.client.build.json".`
+completely and to replace `"spatialos.unreal.client.build.json"` with `"Game/Plugins/SpatialOS/Source/SpatialOS/spatialos.unreal.client.build.json".`
 This part of the file should now look like this:
 
 ```
 "build": {
-    "tasks_filename": "Game/Source/SpatialOS/spatialos.unreal.client.build.json"
+    "tasks_filename": "Game/Plugins/SpatialOS/Source/SpatialOS/spatialos.unreal.client.build.json"
   },
 ```
 
 7. Delete `spatialos_worker_packages.json` as `spatial` no longer uses this file.
 
-8. In `Game/<yourgame>.uproject` replace all instances of `spatial invoke unreal` with
+8. In `Game/Plugins/SpatialOS/SpatialOS.uplugin` replace all instances of `spatial invoke unreal` with
 `Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager`.
 
-For example, the `PostBuildSteps` section of `Game/<yourgame.uproject>` should look something like this:
+For example, the `PostBuildSteps` section of `Game/Plugins/SpatialOS/SpatialOS.uplugin` should look something like this:
 ```
 "PostBuildSteps":
     {
         "Win64": [
             "cd /D \"$(ProjectDir)\"",
-            "Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager package --engineDir=\"$(EngineDir)\" --project=\"$(ProjectFile)\" --platform=\"$(TargetPlatform)\" --target=\"$(TargetType)\" --configuration=\"$(TargetConfiguration)\" -- -allmaps",
+            "Plugins\\SpatialOS\\Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager package --engineDir=\"$(EngineDir)\" --project=\"$(ProjectFile)\" --platform=\"$(TargetPlatform)\" --target=\"$(TargetType)\" --configuration=\"$(TargetConfiguration)\" -- -allmaps",
             "exit /B %ERRORLEVEL%"
         ],
         "Linux": [
             "cd \"$(ProjectDir)\"",
-            "Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager package --engineDir=\"$(EngineDir)\" --project=\"$(ProjectFile)\" --platform=\"$(TargetPlatform)\" --target=\"$(TargetType)\" --configuration=\"$(TargetConfiguration)\" -- -allmaps",
+            "Plugins\\SpatialOS\\Binaries\\ThirdParty\\Improbable\\Programs\\unreal_packager package --engineDir=\"$(EngineDir)\" --project=\"$(ProjectFile)\" --platform=\"$(TargetPlatform)\" --target=\"$(TargetType)\" --configuration=\"$(TargetConfiguration)\" -- -allmaps",
             "exit /B %ERRORLEVEL%"
         ]
     }
