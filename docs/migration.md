@@ -34,7 +34,7 @@ and to replace `"Game/Intermediate/Improbable/spatialos.unreal.worker.build.json
     * Add the line `!Game/Binaries/ThirdParty/`
     * Delete the line `Game/Source/SpatialOS/*`
 
-**Note:** In all our starter projects downloaded before 2018-05-15 the VCS ignore files are not set as above, so if your project is based on any of these projects, you need to edit the VCS ignore files as described in the final step.
+**Note:** If you are migrating a starter project that you downloaded before 2018-05-15 the VCS ignore files are not set as above, so you need to edit the VCS ignore files as described above.
 
 ## Detailed guide
 
