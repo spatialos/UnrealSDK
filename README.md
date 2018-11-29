@@ -1,7 +1,7 @@
 ![SpatialOS Unreal SDK](docs/assets/unreal-sdk-header.png)
 
-**New from November 2018: The SpatialOS GDK for Unreal**<br/>
-Check out the alpha release of our [SpatialOS Game Development Kit (GDK) for Unreal](https://docs.improbable.io/unreal/latest/welcome). The SpatialOS GDK for Unreal is designed to replace the SpatialOS SDK for Unreal and we recommend using it over using the SDK for new game projects.
+## New from November 2018: The SpatialOS GDK for Unreal<br/>
+Check out the alpha release of our [SpatialOS Game Development Kit (GDK) for Unreal](https://docs.improbable.io/unreal/latest/welcome). **The SpatialOS GDK for Unreal is designed to replace the SpatialOS SDK for Unreal and we recommend using it over using the SDK for new game projects.**
 
 ---
 
